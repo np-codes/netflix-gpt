@@ -1,11 +1,12 @@
 import { signOut, createUserWithEmailAndPassword, signInWithEmailAndPassword , updateProfile} from "firebase/auth";
 import { auth } from './firebase';
 import { addUser } from "./userSlice";
+import { USER_IMG } from "./constants";
 
 
 // SignUP API this will create a new user and save its credentials
 // There is also an updatePRofile api which is present inside just for updating name (it can be removed and name and pic can be added directly) 
-export const SIGNUP_API = (name, email, password, dispatch, seterrormsg, onSuccess) => {
+export const SIGNUP_API = (name, email, password, dispatch, seterrormsg) => {
     //creating const dispatch here can throw error
     createUserWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
@@ -14,7 +15,7 @@ export const SIGNUP_API = (name, email, password, dispatch, seterrormsg, onSucce
             // ...
             updateProfile(user, {
                 displayName: name, 
-                photoURL: "https://static.wikia.nocookie.net/925fa2de-087e-47f4-8aed-4f5487f0a78c/scale-to-width/755"
+                photoURL: USER_IMG
             }).then(() => {
                 // Profile updated!
                 const {uid, email, displayName, photoURL} = auth.currentUser;
@@ -26,7 +27,6 @@ export const SIGNUP_API = (name, email, password, dispatch, seterrormsg, onSucce
                             photoURL: photoURL,
                         })
                 );
-                onSuccess();
             }).catch((error) => {
                 // An error occurred
                 seterrormsg (error)
@@ -58,7 +58,7 @@ export const SIGNIN_API = (email, password, seterrormsg) => {
 export const SIGNOUT_API = (navigate) => {
     signOut(auth).then(() => {
         // Sign-out successful.
-        navigate('/');
+        navigate('/login');
     }).catch((error) => {
         navigate("/error");
     });

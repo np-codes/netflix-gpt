@@ -1,9 +1,9 @@
 import React, { useRef, useState } from 'react';
-import { BG_IMG } from '../utils/img';
+import { BG_IMG } from '../utils/constants';
 import { checkvalidData } from '../utils/validate';
 import Header from './Header';
 import { useNavigate } from 'react-router-dom';
-import { SIGNIN_API, SIGNUP_API } from '../utils/apis';
+import { SIGNIN_API, SIGNUP_API } from '../utils/firebaseAPIS';
 import { useDispatch } from 'react-redux';
 
 
@@ -39,7 +39,7 @@ const Login = () => {
         if(!issigninform){
             //Sign up logic
             const name = firstname.current.value+" "+lastname.current.value;
-            SIGNUP_API(name, email.current.value, password.current.value, dispatch, seterrormsg, ()=> {navigate('/browser')})
+            SIGNUP_API(name, email.current.value, password.current.value, dispatch, seterrormsg)
         }
         else{
             //Sign in Logic

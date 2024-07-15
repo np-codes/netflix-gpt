@@ -13,6 +13,18 @@
         - Signout
         - update
 - Created Redux store with userSlice 
+7/11 : 
+- Bug fix: 
+    - display username and photourl on login
+    - authcheck in header so can check user and route accordingly 
+- TMDB API registration and get a token
+7/15 :
+- Fetch movie lists from TMDB
+- Created custom hooks and movieslice
+- Updated store with video trailer
+- Maincontainer for trailer video and title
+- Embedded the youtube video 
+- Secondary container ( it will have horizontal movie lists)
 
 
 # Features

@@ -1,15 +1,19 @@
 import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import { LOGO_IMG } from '../utils/img'
-import { SIGNOUT_API } from '../utils/apis'
+import { LOGO_IMG } from '../utils/constants'
+import { SIGNOUT_API } from '../utils/firebaseAPIS'
 import { useSelector } from 'react-redux';
+import useAuthCheck from '../hooks/useAuthCheck';
+
 
 const Header = ({signedin , showsignbtn}) => {
 	const [showsignin, setshowsignin] = useState(signedin);
 	const [namevisible, setnamevisible] = useState(false);
   	const navigate = useNavigate();
 	const user = useSelector((store)=> store?.user)
+	useAuthCheck();
 
+	// Signin button could be removed as it is no longer available on header
   	const Signin_Click = () => {
     	setshowsignin(!showsignin);
   	};
@@ -23,15 +27,17 @@ const Header = ({signedin , showsignbtn}) => {
 		setnamevisible(!namevisible);
 	};
 
+    
+
   	return (
     	<div 
-      		className='absolute flex items-center justify-between w-full bg-gradient-to-b from-black z-10'>
+      		className='absolute flex items-center justify-between w-full bg-gradient-to-b from-black z-20'>
       		<img 
         		className='w-44 md:w-44'
         		src={LOGO_IMG}
         		alt="logo"
       		/>
-
+			
       		{showsignbtn && (showsignin? 
 				<div className='px-3'>
 					<Link to='/Login'>
@@ -54,11 +60,11 @@ const Header = ({signedin , showsignbtn}) => {
 						<img
 							onClick={()=>Show_User()}
 							className='h-14 px-3'
-							src={user.photoURL}
+							src={user?.photoURL}
 							alt='usericon'
 						/>
-						{namevisible && <div className='absolute top-full text-2xl font-black text-center ' >
-							{user.displayName.split('').map((letter,index) => (
+						{namevisible && <div className='absolute top-full text-2xl font-black text-center text-white' >
+							{user?.displayName?.split('').map((letter,index) => (
 								<div key={index}>{letter.toUpperCase()}</div>
 							))}
 						</div>}
@@ -68,5 +74,5 @@ const Header = ({signedin , showsignbtn}) => {
     	</div>
   	)
 };
-//top-full left-1/2 transform -translate-x-1/2
+
 export default Header;
