@@ -1,7 +1,7 @@
 import { signOut, createUserWithEmailAndPassword, signInWithEmailAndPassword , updateProfile} from "firebase/auth";
-import { auth } from './firebase';
-import { addUser } from "./userSlice";
-import { USER_IMG } from "./constants";
+import { auth } from '../utils/firebase';
+import { addUser } from "../utils/userSlice";
+import { USER_IMG } from "../utils/constants";
 
 
 // SignUP API this will create a new user and save its credentials
@@ -39,6 +39,8 @@ export const SIGNUP_API = (name, email, password, dispatch, seterrormsg) => {
         });
 };
 
+//--------------------------------------------------------------------------------------------------------
+//--------------------------------------------------------------------------------------------------------
 // SignIn API this will match the email and password in our data and allow user to enter
 export const SIGNIN_API = (email, password, seterrormsg) => {
     signInWithEmailAndPassword(auth, email, password)
@@ -54,6 +56,8 @@ export const SIGNIN_API = (email, password, seterrormsg) => {
         });
 };
 
+//--------------------------------------------------------------------------------------------------------
+//--------------------------------------------------------------------------------------------------------
 // SignOut API for signing user out
 export const SIGNOUT_API = (navigate) => {
     signOut(auth).then(() => {

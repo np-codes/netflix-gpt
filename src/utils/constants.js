@@ -7,7 +7,9 @@ export const USER_IMG = "https://static.wikia.nocookie.net/925fa2de-087e-47f4-8a
 export const API_OPTIONS = {
     method: 'GET',
     headers: {
-      accept: 'application/json',
-      Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI2ZjJmZTc2YjE0N2I0OGE5MDEzNjFlZWI1NmVjMTkyYyIsIm5iZiI6MTcyMDczNjA5Mi4xMDg5NDYsInN1YiI6IjY2OTA1Nzc0MTE3Y2IwOWRmYmQ5ODY2NCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.qyQoNNLaVsd0O2x2eTQjHi_rVBKK-0wDws0kE-xN4PY'
+		accept: 'application/json',
+		Authorization: `Bearer ${process.env.REACT_APP_TMDB_BEARER_TOKEN} `
     }
-  };
+};
+
+export const POSTER_CDN_URL = "https://image.tmdb.org/t/p/w400";

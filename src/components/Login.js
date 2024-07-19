@@ -3,7 +3,7 @@ import { BG_IMG } from '../utils/constants';
 import { checkvalidData } from '../utils/validate';
 import Header from './Header';
 import { useNavigate } from 'react-router-dom';
-import { SIGNIN_API, SIGNUP_API } from '../utils/firebaseAPIS';
+import { SIGNIN_API, SIGNUP_API } from '../hooks/useFirebaseAPIS';
 import { useDispatch } from 'react-redux';
 
 

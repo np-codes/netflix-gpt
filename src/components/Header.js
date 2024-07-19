@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { LOGO_IMG } from '../utils/constants'
-import { SIGNOUT_API } from '../utils/firebaseAPIS'
+import { SIGNOUT_API } from '../hooks/useFirebaseAPIS'
 import { useSelector } from 'react-redux';
 import useAuthCheck from '../hooks/useAuthCheck';
 
@@ -31,7 +31,7 @@ const Header = ({signedin , showsignbtn}) => {
 
   	return (
     	<div 
-      		className='absolute flex items-center justify-between w-full bg-gradient-to-b from-black z-20'>
+      		className=' fixed flex items-center justify-between w-full bg-gradient-to-b from-black z-30'>
       		<img 
         		className='w-44 md:w-44'
         		src={LOGO_IMG}

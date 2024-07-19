@@ -3,7 +3,6 @@ import React from 'react'
 import { useSelector } from 'react-redux'
 import VideoTitle from './VideoTitle';
 import VideoBG from './VideoBG';
-import useMovieVideo from '../hooks/useMovieVideo'
 
 
 const MainContainer = () => {
@@ -12,13 +11,12 @@ const MainContainer = () => {
     const mainMovie = movies[1];
     const {title, overview, id } = mainMovie;
 
-  return (
-    <div>
-        <VideoTitle title={title} overview={overview} id={id}/>
-        <VideoBG id={id}/>
-        
-    </div>
-  )
+  	return (
+		<div className='relative'>
+			<VideoTitle title={title} overview={overview} id={id}/>
+			<VideoBG id={id}/>
+		</div>
+  	)
 }
 
 export default MainContainer
