@@ -3,8 +3,9 @@ import Body from './components/Body';
 import appStore from './utils/appStore';
 import Login from './components/Login';
 import Browse from './components/Browse';
-import {createBrowserRouter , Outlet, RouterProvider } from 'react-router-dom';
+import {createBrowserRouter , RouterProvider } from 'react-router-dom';
 import Error from './components/Error';
+import Header from './components/Header';
 
 function App() {
   const appRouter = createBrowserRouter([
@@ -14,7 +15,7 @@ function App() {
     },
     {
         path: "/login",
-        element: <Login/>
+        element:  <Login/>
     },
     {
         path: "/browser",

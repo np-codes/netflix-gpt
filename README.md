@@ -24,6 +24,10 @@
 - Embedded the youtube video 
 - Secondary container ( it will have horizontal movie lists)
 - Movies API for getting movies lists
+- GPT search component
+- Removed Signin button from header as not required
+- Implimented Multi-Language feature
+
 
 
 # Features
