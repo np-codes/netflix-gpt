@@ -1,7 +1,7 @@
 // this is the video running in bg in top of neflix 
 import React from 'react'
 import { useSelector } from 'react-redux'
-import VideoTitle from './VideoTitle';
+import VideoDetails from './VideoDetails';
 import VideoBG from './VideoBG';
 
 
@@ -13,7 +13,7 @@ const MainContainer = () => {
 
   	return (
 		<div className='relative'>
-			<VideoTitle title={title} overview={overview} id={id}/>
+			<VideoDetails title={title} overview={overview} id={id}/>
 			<VideoBG id={id}/>
 		</div>
   	)

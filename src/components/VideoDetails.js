@@ -1,6 +1,6 @@
 import React from 'react'
 
-const VideoTitle = ({title,overview}) => {
+const VideoDetails = ({title,overview}) => {
   
   	return (
 			
@@ -16,4 +16,4 @@ const VideoTitle = ({title,overview}) => {
   	)
 }
 
-export default VideoTitle;
+export default VideoDetails;

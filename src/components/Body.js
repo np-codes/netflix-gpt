@@ -36,8 +36,9 @@ const Body = () => {
             <div className=' absolute mt-[70%] w-full flex items-center justify-center'>
                 <div className=''>
                 {LANGUAGES_SUPPORTED.map (
-                    lang => 
+                    (lang) => 
                     <button 
+                        key={lang.identifier}
                         className=' p-3 m-10 col-span-2 text-2xl font-bold text-white text-center font-serif rounded-lg bg-red-600'
                         onClick={() => handleGetStarted(lang.identifier)}>
                         <Link to={'/login'}>{lang.getstarted}</Link>

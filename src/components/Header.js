@@ -16,6 +16,7 @@ const Header = ({loggedin}) => {
 	const dispatch = useDispatch();
 	const user = useSelector((store)=> store?.user);
 	const langkey= useSelector((store)=> store?.config.language);
+	const showGPTSearch = useSelector((store) => store.gpt.showGPTSearch)
 
 	useAuthCheck();
 
@@ -48,6 +49,7 @@ const Header = ({loggedin}) => {
 				<div className=''> 
 					<select className='rounded-lg shadow-lg font-semibold text-xl text-white h-10 md:h-10 px-2 md:px-2 bg-red-600'
 						onChange={handleLanguageChange}
+						value={langkey}
 					>
 						{LANGUAGES_SUPPORTED.map(lang => <option key={lang.identifier} value={lang.identifier}>{lang.name}</option>)}
 					</select>
@@ -55,11 +57,12 @@ const Header = ({loggedin}) => {
 				{showsignin &&
 					(<div className='flex items-center gap-4'>
 						
-						<button 
+						{ <button 
 							className='rounded-lg shadow-lg font-semibold text-xl text-white h-10 md:h-10 px-5 md:px-5 bg-red-600 hover:border-2 border-white'	
-							onClick={() => handleGPTSearchClick()}
+							onClick={handleGPTSearchClick}
 						> {lang[langkey].gptsearch}
-						</button>
+						</button>}
+
 						<button 
 							className='rounded-lg shadow-lg font-semibold text-xl text-white h-10 md:h-10 px-5 md:px-5 bg-red-600 hover:border-2 border-white'
 							onClick={()=> handleSignout_Click()}

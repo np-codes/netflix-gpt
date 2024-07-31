@@ -14,10 +14,12 @@ export const API_OPTIONS = {
     }
 };
 
+export const OPENAI_KEY = `${process.env.REACT_APP_OPENAI_GPT_API_KEY}`
+
 export const POSTER_CDN_URL = "https://image.tmdb.org/t/p/w400";
 
 export const LANGUAGES_SUPPORTED = [
   {identifier:"en" , name: lang.en.langname , getstarted : lang.en.getstarted},
   {identifier:"hi" , name: lang.hi.langname , getstarted : lang.hi.getstarted},
-  {identifier:"es" , name: lang.es.langname , getstarted : lang.es.getstarted}
+  {identifier:"es" , name: lang.es.langname , getstarted : lang.es.getstarted},
 ]

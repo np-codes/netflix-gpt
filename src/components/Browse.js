@@ -4,7 +4,7 @@ import {useNowPlayingMovies, usePopularMovies, useTopRatedMovies, useUpcomingMov
 import MainContainer from './MainContainer';
 import SecondaryContainer from './SecondaryContainer';
 import { useSelector } from 'react-redux';
-import GPTSearch from './GPTSearch';
+import GPTSearchPage from './GPTSearchPage';
 
 
 const Browse = () => {
@@ -17,7 +17,7 @@ const Browse = () => {
     	<div className='bg-black h-screen overflow-x-hidden'>
       		<Header loggedin={true}/>
 			{showGPTSearch? 
-				<GPTSearch /> :<>
+				<GPTSearchPage /> :<>
 				<MainContainer />
 				<SecondaryContainer />
 				</>
