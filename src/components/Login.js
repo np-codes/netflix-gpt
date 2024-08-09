@@ -1,6 +1,6 @@
 import React, { useRef, useState } from 'react';
 import { BG_IMG } from '../utils/constants';
-import { checkvalidData } from '../utils/validate';
+import { check_valid_Data } from '../utils/validate';
 import Header from './Header';
 import { SIGNIN_API, SIGNUP_API } from '../hooks/useFirebaseAPIS';
 import { useDispatch, useSelector } from 'react-redux';
@@ -16,7 +16,7 @@ const Login = () => {
     const lastname = useRef(null);
     const langkey = useSelector(store => store.config.language);
 
-    const inputcss = "p-4 m-2 w-10/12 rounded-md text-white text-lg border-2 bg-black bg-opacity-80 border-gray-400";
+    const inputcss = "p-1.5 sm:p-2.5 md:p-4 m-1.5 md:m-2 w-8/12 md:w-10/12 rounded-md text-white text-lg border-2 bg-black bg-opacity-80 border-gray-400";
 
     const togglesigninform = () => {
         seterrormsg(null);
@@ -27,7 +27,7 @@ const Login = () => {
 
     const handleformsubmit = () => {
         // Form data validation
-        const message = checkvalidData(email.current.value, password.current.value);
+        const message = check_valid_Data(email.current.value, password.current.value);
         seterrormsg(message);
 
         if(message!==null) {
@@ -52,22 +52,22 @@ const Login = () => {
   return (
     <div> 
         <Header loggedin={false}/>
-        <div className="absolute w-full h-full">
+        <div className="absolute inset-0 z-0 ">
             <img
-                className='absolute w-full h-full object cover'
+                className='h-full w-full object-cover'
                 src={BG_IMG}
                 alt="bg"
             />
         </div>
-        <div className='absolute w-[400px] p-6 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-black bg-opacity-80 rounded-md '>
-            
-            <form onSubmit={(e) => e.preventDefault()} className='flex flex-col gap-3 items-center'>
+        <div className='absolute flex items-center justify-center top-[30%] w-full  '>
+            <div className='w-[300px] sm:w-[400px] sm:p-3 md:p-6  bg-black bg-opacity-80 rounded-md '>
+            <form onSubmit={(e) => e.preventDefault()} className='flex flex-col sm:gap-1 md:gap-3 items-center'>
                 <h1 
-                    className='p-2 my-3 text-white text-5xl font-bold'
+                    className='p-2 my-1 sm:my-2 md:my-3 text-white text-3xl sm:text-4xl md:text-5xl font-bold'
                 >{signin_or_signup(issigninform)}</h1>
                 
                 {!issigninform &&(
-                    <div className='flex flex-col gap-3 w-full items-center'>
+                    <div className='flex flex-col sm:gap-1 md:gap-3 w-full items-center'>
                         <input ref={firstname} type="text" placeholder={lang[langkey].fnameplaceholder} className= {inputcss}/>
                         <input ref={lastname} type="text" placeholder={lang[langkey].lnameplaceholder} className= {inputcss}/>
                     </div>) 
@@ -87,13 +87,14 @@ const Login = () => {
                 <p className='text-red-600'>{errormsg}</p>
                 <button 
                     onClick={() => handleformsubmit()}
-                    className='p-3 m-2 w-10/12 bg-red-600 text-white font-semibold text-xl rounded-md'
+                    className='p-1.5 sm:p-2.5 md:p-4 m-1.5 md:m-2 w-8/12 md:w-10/12 bg-red-600 text-white font-semibold text-xl rounded-md'
                 >{signin_or_signup(issigninform)}</button>
 
-                <h2 className='p-3 m-2 text-white'>{issigninform? lang[langkey].msgfornewuser : lang[langkey].msgforregistereduser}&nbsp;
+                <h2 className='p-1 md:p-3 m-2 text-white'>{issigninform? lang[langkey].msgfornewuser : lang[langkey].msgforregistereduser}&nbsp;
                     <span onClick={()=>togglesigninform()} className='hover:cursor-pointer hover:underline hover:text-blue-500'>{signin_or_signup(!issigninform)+"."}</span>
                 </h2>
             </form>
+            </div>
         </div>
     </div>
     

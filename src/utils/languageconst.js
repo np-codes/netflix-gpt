@@ -14,12 +14,17 @@ const lang = {
         search:"Search",
         signout: "Sign Out",
         gptsearch: "GPT Search",
-        gptsearchplaceholder: "Thinking Something? Type here...",
+        gptsearchplaceholder: "Thinking Something? Type here...🤔",
         movielisttitle1 : "Upcoming",
         movielisttitle2 : "Now Playing",
         movielisttitle3 : "Popular",
         movielisttitle4 : "Top Rated",
-
+        enterkey: "ADD API Key",
+        enterkeyplaceholder: "I will not share my API key; please use your own key. 😤",
+        removekey: "Remove API Key",
+        removekeyplaceholder: "API Key added, ensure you have sufficient credit. 🤑",
+        withoutkeygptsearchph: "GPT search is not available. Add valid API Key.😵",
+        invalidkeymsgph: "Invalid key. Stop guessing and get your own! 🙄",
     },
 
     hi:{
@@ -37,11 +42,18 @@ const lang = {
         search: "खोज",
         signout: "साइन आउट",
         gptsearch: "जीपीटी खोज",
-        gptsearchplaceholder: "कुछ सोच रहे हो? यहाँ टाइप करें...",
+        gptsearchplaceholder: "कुछ सोच रहे हो? यहाँ टाइप करें...🤔",
         movielisttitle1: "आने वाली",
         movielisttitle2: "अभी चल रही हैं",
         movielisttitle3: "लोकप्रिय",
-        movielisttitle4: "शीर्ष रेटेड"
+        movielisttitle4: "शीर्ष रेटेड",
+        enterkey: "एड एपीआई कुंजी",
+        enterkeyplaceholder: "मैं अपनी एपीआई कुंजी साझा नहीं करूंगा; कृपया अपनी कुंजी का उपयोग करें। 😤",
+        removekey: "एपीआई कुंजी हटाएं",
+        removekeyplaceholder: "एपीआई कुंजी जोड़ी गई है, पर्याप्त क्रेडिट सुनिश्चित करें। 🤑",
+        withoutkeygptsearchph: "GPT खोज उपलब्ध नहीं है। मान्य API कुंजी जोड़ें।😵",
+        invalidkeymsgph: "अमान्य कुंजी। अनुमान लगाना बंद करें और अपनी खुद की प्राप्त करें! 🙄",
+
     },
 
     es:{
@@ -59,11 +71,18 @@ const lang = {
         search: "Buscar",
         signout: "Cerrar sesión",
         gptsearch: "Búsqueda GPT",
-        gptsearchplaceholder:"¿Estás pensando en algo? Escriba aquí...",
+        gptsearchplaceholder:"¿Estás pensando en algo? Escriba aquí...🤔",
         movielisttitle1: "Próximas",
         movielisttitle2: "En Cartelera",
         movielisttitle3: "Populares",
-        movielisttitle4: "Más Valoradas"
+        movielisttitle4: "Más Valoradas",
+        enterkey: "AÑADIR clave API",
+        enterkeyplaceholder: "No compartiré mi clave API; por favor, usa tu propia clave. 😤",
+        removekey: "Eliminar clave API",
+        removekeyplaceholder: "Clave API añadida, asegúrate de tener suficiente crédito. 🤑",
+        withoutkeygptsearchph: "Búsqueda GPT no disponible. Añade una clave API válida.😵",
+        invalidkeymsgph: "Clave inválida. ¡Deja de adivinar y consigue la tuya! 🙄",
+
     }
 };
 

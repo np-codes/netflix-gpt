@@ -4,7 +4,7 @@ import GPTRecommendation from './GPTRecommendation';
 
 const GPTSearchPage = () => {
 	return (
-		<div className=' '>
+		<div className=''>
 			<GPTSearchBar />
 			<GPTRecommendation />
 		</div>

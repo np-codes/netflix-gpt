@@ -9,9 +9,9 @@ const VideoBG = ({id}) => {
     return (
         <div className=" w-screen h-screen overflow-hidden relative">
             {trailer && 
-                <div className="absolute w-full h-full overflow-hidden z-0">
+                <div >
                     <iframe
-                        className='absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 scale-[1.2] w-full h-full'
+                        className='absolute top-[30%] sm:top-[45%] md:top-1/2 left-[40%] sm:left-[55%] md:left-1/2 transform -translate-x-1/2 -translate-y-1/2 scale-125 sm:scale-135 md:scale-150 w-full h-full'
                         src={`https://www.youtube.com/embed/${trailer?.key}?si=91WKB2FC5v8BDcqx&autoplay=1&mute=1&controls=1&loop=1`}
                         allowFullScreen
                         title="YouTube video player"

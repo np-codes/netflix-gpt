@@ -16,6 +16,7 @@ const Header = ({loggedin}) => {
 	const dispatch = useDispatch();
 	const user = useSelector((store)=> store?.user);
 	const langkey= useSelector((store)=> store?.config.language);
+	const langdata= useSelector((store)=> store?.config.langlist);
 	const showGPTSearch = useSelector((store) => store.gpt.showGPTSearch)
 
 	useAuthCheck();
@@ -36,46 +37,49 @@ const Header = ({loggedin}) => {
 	const handleLanguageChange = (e) => {
 		dispatch(changeLanguage(e.target.value));
 	}
-
   	return (
     	<div 
-      		className=' fixed flex items-center justify-between w-full bg-gradient-to-b from-black z-30'>
-      		<img 
-        		className='w-44 md:w-44'
+      		className='absolute flex items-center justify-between w-full bg-gradient-to-b from-black z-30 flex-col md:flex-row'>
+      		{ <img 
+        		className='w-36 sm:w-40 md:w-44'
         		src={LOGO_IMG}
         		alt="logo"
       		/>
-			<div className='flex items-center mx-10 gap-4'>
+		  }
+			<div className='flex items-center px-2 md:gap-2  '>
 				<div className=''> 
-					<select className='rounded-lg shadow-lg font-semibold text-xl text-white h-10 md:h-10 px-2 md:px-2 bg-red-600'
+					<select className='mx-2 rounded-md md:rounded-lg shadow-lg font-semibold text-xs sm:text-base md:text-xl text-white h-8 sm:h-10 px-2 sm:px-3 md:px-4 bg-red-600'
 						onChange={handleLanguageChange}
 						value={langkey}
 					>
-						{LANGUAGES_SUPPORTED.map(lang => <option key={lang.identifier} value={lang.identifier}>{lang.name}</option>)}
+						{LANGUAGES_SUPPORTED.map(lang => <option
+							className="mx-3"
+							key={lang.identifier} 
+							value={lang.identifier}>{lang.name}</option>)}
 					</select>
 				</div>
 				{showsignin &&
-					(<div className='flex items-center gap-4'>
+					(<div className='flex items-center gap-2 sm:gap-3 md:gap-4 mr-2'>
 						
 						{ <button 
-							className='rounded-lg shadow-lg font-semibold text-xl text-white h-10 md:h-10 px-5 md:px-5 bg-red-600 hover:border-2 border-white'	
+							className='rounded-md md:rounded-lg shadow-lg font-semibold text-xs sm:text-base md:text-xl text-white h-8 sm:h-9 md:h-10 px-2 sm:px-3 md:px-4 bg-red-600 hover:border-2 border-white'	
 							onClick={handleGPTSearchClick}
 						> {lang[langkey].gptsearch}
 						</button>}
 
 						<button 
-							className='rounded-lg shadow-lg font-semibold text-xl text-white h-10 md:h-10 px-5 md:px-5 bg-red-600 hover:border-2 border-white'
+							className='rounded-lg shadow-lg font-semibold text-xs sm:text-base md:text-xl text-white h-8 sm:h-9 md:h-10 px-2 sm:px-3 md:px-4 bg-red-600 hover:border-2 border-white'
 							onClick={()=> handleSignout_Click()}
 						> {lang[langkey].signout}
 						</button>
 						<div className='flex flex-col items-center'>
 							<img
 								onClick={()=> handleShow_User()}
-								className='h-14'
+								className='h-10 md:h-14'
 								src={user?.photoURL}
 								alt='usericon'
 							/>
-							{namevisible && <div className='absolute top-full text-2xl font-black text-center text-white' >
+							{namevisible && <div className='absolute top-full text-l md:text-2xl font-black text-center text-white' >
 								{user?.displayName?.split('').map((letter,index) => (
 									<div key={index}>{letter.toUpperCase()}</div>
 								))}

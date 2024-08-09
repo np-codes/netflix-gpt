@@ -4,11 +4,20 @@ const configSlice = createSlice(
     {
         name: 'config',
         initialState: {
-            language: "en"
+            language: "en",
+            userapikey: null
         },
         reducers: {
             changeLanguage: (state,action) => {
                 state.language = action.payload;
+            },
+
+            addAPIKey: (state,action) => {
+                state.userapikey = action.payload;
+            },
+
+            removeAPIKey: (state,action) => {
+                state.userapikey = null;
             }
         }
     }
@@ -16,4 +25,4 @@ const configSlice = createSlice(
 
 export default configSlice.reducer;
 
-export const {changeLanguage} = configSlice.actions;
+export const {changeLanguage, addAPIKey, removeAPIKey} = configSlice.actions;

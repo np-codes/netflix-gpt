@@ -30,6 +30,10 @@
 - GPT searchbar and setting up openai api
 - Showing up GPT Recommended movie list
 - Memoization
+- Responsive
+- Adding and Removing user API key
+- Validating user API key
+- Multi-Language more dynamic
 
 
 
