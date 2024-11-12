@@ -6,7 +6,7 @@ import { useCallback } from 'react';
 export const useOpenai = () => {
         const openai = useOpenaiConfig();
         const Openai_Movies_Recommend = useCallback(async(search) => {
-            const Query = `Suggest 5 movies for ${search}. Name them in a single line, separated by commas. Ex:"Superbad, Borat.."`;
+            const Query = `Please suggest five movies related to "${search}". List them in a single line, separated by commas. For example: "Superbad, Borat, The Hangover, Step Brothers, Bridesmaids."`;
 
             const gptResults = await openai.chat.completions.create({
                 messages: [{ role: 'user', content: Query }],
@@ -17,8 +17,6 @@ export const useOpenai = () => {
             }
             console.log(gptResults)
             const gptRecommends = gptResults?.choices[0]?.message?.content.split(",");
-        
-            //const gptRecommends = ["Anchorman", "Step Brothers", "The Hangover", "Bridesmaids", "Super Troopers"]
             return gptRecommends;
         },[openai]);
 

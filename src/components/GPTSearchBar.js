@@ -14,14 +14,15 @@ const GPTSearchBar = () => {
     const searchtext = useRef(null);
     const userapikey = useRef(null);
 
-    const [gptsearchbarph , setgptsearchbarph] = useState(apiKey? lang[langkey].gptsearchplaceholder :lang[langkey].withoutkeygptsearchph)
-    const [apikeybarph , setapikeyph] = useState(lang[langkey].enterkeyplaceholder)
-
+    const [gptsearchbarph , setgptsearchbarph] = useState(apiKey? "gptsearchplaceholder" : "withoutkeygptsearchph")
+    const [apikeybarph , setapikeybarph] = useState("enterkeyplaceholder")
+    const [ishidden , setishidden] = useState(true)
+ 
     const validateAPIKey = useUserAPIKey();
     const dispatch = useDispatch();
     const Openai_Movies_Recommend = useOpenai();
 
-    const btncss = 'rounded-md md:rounded-lg shadow-lg font-semibold text-xs sm:text-base md:text-xl text-white h-8 sm:h-10 md:h-12 bg-red-600 hover:border-2 border-white col-span-3';
+    const btncss = 'rounded-md md:rounded-lg shadow-lg font-semibold text-xs sm:text-base md:text-xl text-white h-8 sm:h-10 md:h-12 bg-red-600 hover:cursor-pointer hover:text-black hover:scale-105 transition-all duration-500 col-span-3';
     const inputcss = 'p-2 rounded-lg h-8 sm:h-10 md:h-12 col-span-9';
 
     //-------------- API to fetch movies recommended by openai --------------------
@@ -42,15 +43,14 @@ const GPTSearchBar = () => {
 
     }
     const handleAPIKey = async() => {
-        console.log("userapikey--------////----------",userapikey)
         const inputkey = userapikey.current.value ;
         userapikey.current.value="";
         if(!apiKey) {
             const result = await validateAPIKey(inputkey);
             if(result) {
-                setgptsearchbarph(lang[langkey].gptsearchplaceholder)
+                setgptsearchbarph("gptsearchplaceholder")
             }else{
-                setapikeyph(lang[langkey].invalidkeymsgph)
+                setapikeybarph("invalidkeymsgph")
             }
         };
           
@@ -59,7 +59,7 @@ const GPTSearchBar = () => {
     const handleRemoveAPIKey = () => {
         dispatch(removeAPIKey());
         setgptsearchbarph(lang[langkey].withoutkeygptsearchph);
-        setapikeyph(lang[langkey].enterkeyplaceholder);
+        setapikeybarph(lang[langkey].enterkeyplaceholder);
     }
     return (
         <div className='pt-28 sm:pt-32 md:pt-28'>
@@ -70,12 +70,20 @@ const GPTSearchBar = () => {
                             <button className= {btncss} onClick={handleAPIKey}>
                                 {lang[langkey].enterkey} 
                             </button>
-                            <input
-                                ref={userapikey}
-                                type="text" 
-                                className= 'p-2 rounded-lg h-8 sm:h-10 md:h-12 col-span-9'
-                                placeholder={apikeybarph}
-                            />
+                            <div className='relative col-span-9 '>
+                                <input
+                                    ref={userapikey}
+                                    type={ishidden? "password" : "text"} 
+                                    className= 'p-2 rounded-l-lg h-8 sm:h-10 md:h-12 w-[91%] col-span-9'
+                                    placeholder={lang[langkey][apikeybarph]}
+                                />
+                                <button 
+                                    className='w-[9%] rounded-r-lg h-8 sm:h-10 md:h-12 absolute top-2/4 transform -translate-y-2/4 bg-green-300 sm:p-1 md:p-2 text-base sm:text-xl md:text-2xl' 
+                                    onClick={()=>{setishidden(!ishidden)}}>
+                                    {ishidden? "😵" : "😮"}
+                                </button>
+                            </div>
+                            
                         </>
                     ):  (<>
                             <button className= {btncss} onClick={handleRemoveAPIKey}>
@@ -93,7 +101,7 @@ const GPTSearchBar = () => {
                         ref={searchtext}
                         type="text" 
                         className= {inputcss}
-                        placeholder={gptsearchbarph}/>
+                        placeholder={lang[langkey][gptsearchbarph]}/>
                     <button className= {btncss} onClick={handleGPTSearchClick}>
                         {lang[langkey].gptsearch} 
                     </button>

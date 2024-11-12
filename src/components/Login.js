@@ -59,7 +59,7 @@ const Login = () => {
                 alt="bg"
             />
         </div>
-        <div className='absolute flex items-center justify-center top-[30%] w-full  '>
+        <div className='absolute flex items-center justify-center top-1/2 transform -translate-y-1/2 w-full  '>
             <div className='w-[300px] sm:w-[400px] sm:p-3 md:p-6  bg-black bg-opacity-80 rounded-md '>
             <form onSubmit={(e) => e.preventDefault()} className='flex flex-col sm:gap-1 md:gap-3 items-center'>
                 <h1 
@@ -87,7 +87,7 @@ const Login = () => {
                 <p className='text-red-600'>{errormsg}</p>
                 <button 
                     onClick={() => handleformsubmit()}
-                    className='p-1.5 sm:p-2.5 md:p-4 m-1.5 md:m-2 w-8/12 md:w-10/12 bg-red-600 text-white font-semibold text-xl rounded-md'
+                    className='p-1.5 sm:p-2.5 md:p-4 m-1.5 md:m-2 w-8/12 md:w-10/12 bg-red-600 text-white font-semibold text-xl rounded-md hover:cursor-pointer hover:text-black hover:scale-105 transition-all duration-500'
                 >{signin_or_signup(issigninform)}</button>
 
                 <h2 className='p-1 md:p-3 m-2 text-white'>{issigninform? lang[langkey].msgfornewuser : lang[langkey].msgforregistereduser}&nbsp;

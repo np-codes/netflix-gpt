@@ -9,7 +9,7 @@ const SecondaryContainer = () => {
 	const langkey = useSelector((store) => store.config.language);
 
   	return (
-		<div className='z-10 relative -top-[45%] sm:-top-[40%] md:-top-[30%] p-2 sm:p-3 md:p-4 m-2 sm:m-3 md:m-4 '>
+		<div className='z-10 relative -top-[45%] sm:-top-[48%] md:-top-[25%] p-1 sm:p-2 md:p-3 m-1 sm:m-2 md:m-3'>
 			<MovieList title={lang[langkey].movielisttitle1} movies = {movielist.UpcomingMovies} />
 			<MovieList title={lang[langkey].movielisttitle2} movies = {movielist.nowPlayingMovies} />
 			<MovieList title={lang[langkey].movielisttitle3} movies = {movielist.PopularMovies}/>

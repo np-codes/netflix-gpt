@@ -3,6 +3,7 @@ import MovieCard from './MovieCard';
 
 const MovieList = ({title, movies}) => {
     if(!movies) return;
+    console.log(movies)
     return (
         <div className='overflow-x-hidden my-1 sm:m-2 md:my-4' >
             <div>

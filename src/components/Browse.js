@@ -14,16 +14,14 @@ const Browse = () => {
 	useTopRatedMovies();
 	useUpcomingMovies();
   	return (
-    	<div className='bg-black h-screen overflow-x-hidden'>
+    	<div className=' bg-black h-screen overflow-x-hidden' >
       		<Header loggedin={true}/>
 			{showGPTSearch? 
-				<GPTSearchPage /> :<>
+				<GPTSearchPage /> :<div style={{ height: '100vh' }}>
 				<MainContainer />
 				<SecondaryContainer />
-				</>
+				</div>
 			}
-            
-            
     	</div>	
   )
 }

@@ -34,6 +34,9 @@
 - Adding and Removing user API key
 - Validating user API key
 - Multi-Language more dynamic
+- Resetting ReduxStore
+- Design to buttons
+- Bug fix: multi-language in gpt page
 
 
 
