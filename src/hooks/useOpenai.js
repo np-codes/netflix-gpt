@@ -6,7 +6,7 @@ import { useCallback } from 'react';
 export const useOpenai = () => {
         const openai = useOpenaiConfig();
         const Openai_Movies_Recommend = useCallback(async(search) => {
-            const Query = `Please suggest five movies related to "${search}". List them in a single line, separated by commas. For example: "Superbad, Borat, The Hangover, Step Brothers, Bridesmaids."`;
+            const Query = `The user input is: "${search}". If the input is meaningful (e.g., a mood, theme, or genre), suggest exactly five related movies. If it is unclear or nonsensical, interpret it in the closest sensible way possible and still suggest five appropriate movies. Return the movie titles in a single line, separated by commas — with no numbers, descriptions, or extra text. Example format: "Superbad, Borat, The Hangover, Step Brothers, Bridesmaids."`;
 
             const gptResults = await openai.chat.completions.create({
                 messages: [{ role: 'user', content: Query }],

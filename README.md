@@ -54,7 +54,7 @@
 
 - Netflixgpt
     - Search bar
-    - Movir Suggestions
+    - Movie Suggestions
 
 
                         
